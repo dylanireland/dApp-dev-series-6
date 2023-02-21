@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Connect from "./Connect";
+import Metadata from "./Metadata";
+import NFTList from "./NFTList";
+import Mint from "./Mint";
+import Register from "./Register";
+import "./App.css"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [publicKey, setPublicKey] = React.useState(null);
+	return (
+		<div>
+			<Connect setPublicKey={setPublicKey} />
+			<Metadata />
+			<NFTList publicKey={publicKey}/>
+			<Register publicKey={publicKey} />
+			<Mint publicKey={publicKey} />
+		</div>
+	);
 }
 
 export default App;
